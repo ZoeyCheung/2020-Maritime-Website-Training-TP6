@@ -3,17 +3,19 @@
 namespace app\controller;
 
 use app\BaseController;
-use think\facade\View;
 
 class Index extends BaseController
 {
     public function index()
     {
         return View();
+        // return Env::get('database.hostname');
+        // return Config::get('database.connections.mysql.hostname');
+        // echo Config::has('database.connections.mysql.hostname');
     }
 
-    public function hello($name = 'ThinkPHP6')
+    public function hello(string $name)
     {
-        return 'hello,' . $name;
+        return 'Hello,'.$name;
     }
 }
