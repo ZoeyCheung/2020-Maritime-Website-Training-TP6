@@ -1,13 +1,21 @@
 <?php
+/*
+ * @Descripttion: 
+ * @version: V 1.0
+ * @Author: Zoey Cheung
+ * @Date: 2020-07-20 16:08:22
+ * @LastEditors: Zoey Cheung
+ * @LastEditTime: 2020-07-22 19:33:01
+ */ 
 
 namespace app\controller;
-
+use app\BaseController;
 use app\model\Goods as GoodsModel;
 use app\model\GoodsImg as GoodsImgModel;
 use app\model\User as UserModel;
 use think\facade\Db;
 
-class Datatest
+class Datatest extends BaseController
 {
     public function index()
     {

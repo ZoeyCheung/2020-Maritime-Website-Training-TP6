@@ -1,13 +1,12 @@
 <?php
-// +----------------------------------------------------------------------
-// | ThinkPHP [ WE CAN DO IT JUST THINK ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2006~2018 http://thinkphp.cn All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: liu21st <liu21st@gmail.com>
-// +----------------------------------------------------------------------
+/*
+ * @Descripttion: 
+ * @version: V 1.0
+ * @Author: Zoey Cheung
+ * @Date: 2020-06-25 00:05:52
+ * @LastEditors: Zoey Cheung
+ * @LastEditTime: 2020-07-22 19:29:58
+ */ 
 use think\facade\Route;
 
 Route::pattern(['id' => '\d+']);
