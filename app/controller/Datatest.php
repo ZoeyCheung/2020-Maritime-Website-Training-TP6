@@ -24,8 +24,8 @@ class Datatest
     {
         $user =  UserModel::column('username', 'id');
         // return DB::getLastSql();
-        return json($user);
-        // dump($user);
+        // return json($user);
+        dump($user);
     }
 
     public function getGoods($id)
