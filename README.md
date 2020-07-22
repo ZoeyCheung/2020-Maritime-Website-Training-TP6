@@ -4,10 +4,11 @@
 
 1. PHPstudy([官网](https://m.xp.cn/))
 2. thinkPHP([官网](http://www.thinkphp.cn/))
-3. 模板下载和使用（[Bootstrap](https://www.bootcss.com/)）
-4. 初体验：helloworld
-5. 学会看官方文档，使用搜索引擎([阿里巴巴矢量图标库](https://www.iconfont.cn/)、[Font Awesome](https://fontawesome.dashgame.com/)、[jQuery](https://jquery.com/))
-6. （选修）Git 版本控制（[课程资源 Git Hub](https://github.com/zhangna111/2020-Maritime-Website-Training)）
+3. 配置本地站点和本地域名
+4. 模板下载和使用（[Bootstrap](https://www.bootcss.com/)）
+5. 初体验：helloworld
+6. 学会看官方文档，使用搜索引擎([阿里巴巴矢量图标库](https://www.iconfont.cn/)、[Font Awesome](https://fontawesome.dashgame.com/)、[jQuery](https://jquery.com/))
+7. （选修）Git 版本控制（[课程资源 Git Hub](https://github.com/zhangna111/2020-Maritime-Website-Training)）
 
 ### day2：前/后端知识点回顾 - 4学时
 

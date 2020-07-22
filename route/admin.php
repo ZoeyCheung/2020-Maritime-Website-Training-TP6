@@ -2,4 +2,4 @@
 
 use think\facade\Route;
 
-Route::resource('admin','admin/Index/index');
+Route::rule('administrator$', 'admin.Index/index');

@@ -12,9 +12,10 @@ class Goods extends BaseController
         // return "goods";
     }
 
-    public function detail()
+    public function detail($id)
     {
-        return View();
+        // return View();
+        return 'goods detail ' . $id;
         // return "goods detail";
     }
 }
