@@ -5,12 +5,14 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-22 19:52:49
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-23 19:03:33
- */ 
-declare (strict_types = 1);
+ * @LastEditTime: 2020-07-23 20:51:56
+ */
+
+declare(strict_types=1);
 
 namespace app\controller\admin;
 
+use app\model\User as ModelUser;
 use think\facade\View;
 use think\Request;
 
@@ -23,8 +25,11 @@ class User
      */
     public function index()
     {
+        $users = ModelUser::order(['is_admin' => 'desc', 'id' => 'desc'])->select();
+
         View::assign([
             'title' => 'User Management',
+            'list_users' => $users
         ]);
         return View();
     }
