@@ -18,6 +18,63 @@
 
         <div class="row">
             <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="datatable table table-hover table-center mb-0">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th>No.</th>
+                                        <th>Goods SN</th>
+                                        <th>Goods Name</th>
+                                        <th>Origin Price</th>
+                                        <th>Discount Price</th>
+                                        <th>Discount Percentage</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {volist name="list_goods" id="vo" key="k"}
+                                    <tr class="text-center">
+                                        <td>#{$k|format='%02d'}</td>
+                                        <td><a href="/goods/{$vo.id}" target="_blake">{$vo.goods_sn}</a></td>
+                                        <td class="text-left">
+                                            <h2 class="table-avatar">
+                                                <a href="/goods/{$vo.id}" class="avatar avatar-sm mr-2"><img
+                                                        class="avatar-img" src="__IMG__/goods/{$vo.thumb_img}"
+                                                        alt="User Image"></a>
+                                                <a href="/goods/{$vo.id}">{$vo.goods_name}</a>
+                                            </h2>
+                                        </td>
+                                        <td class="text-right">${$vo.origin_price}</td>
+                                        <td class="text-right">${$vo.goods_price}</td>
+                                        <td>
+                                            {if $vo.percentage}
+                                            {$vo.percentage} %
+                                            {else}
+                                            -
+                                            {/if}
+                                        </td>
+                                        <td class="text-right">
+                                            <div class="actions">
+
+                                                <a data-toggle="modal" href="#edit_invoice_report"
+                                                    class="btn btn-sm bg-success-light mr-2">
+                                                    <i class="fe fe-pencil"></i> Edit
+                                                </a>
+                                                <a class="btn btn-sm bg-danger-light" data-toggle="modal"
+                                                    href="#delete_modal">
+                                                    <i class="fe fe-trash"></i> Delete
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {/volist}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

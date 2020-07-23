@@ -5,10 +5,12 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-22 19:52:11
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-23 19:00:11
- */ 
+ * @LastEditTime: 2020-07-23 20:17:40
+ */
+
 namespace app\controller\admin;
 
+use app\model\Goods as ModelGoods;
 use think\facade\View;
 use think\Request;
 
@@ -21,8 +23,10 @@ class Goods
      */
     public function index()
     {
+        $goods = ModelGoods::order('id', 'desc')->select();
         View::assign([
             'title' => 'Goods Management',
+            'list_goods' => $goods
         ]);
         return View();
     }
