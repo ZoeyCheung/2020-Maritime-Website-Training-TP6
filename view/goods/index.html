@@ -1,54 +1,55 @@
-    <div class="page-wrap archive shop">
-        <div class="shop-categories-nav">
-            <nav class="container" aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Goods</li>
-                </ol>
-            </nav>
-        </div>
-        <div class="page-content">
-            <main class="main-content">
-                <div class="container">
-                    <ul class="row products">
-                        {foreach $list_goods as $key => $vo}
-                        <li class="col-md-3 product">
-                            <div class="product-thumb">
-                                {if $vo.percentage > 0}
-                                <span class="onsale">-30%</span>
-                                {/if}
-                                <a href="goods/{$vo.id}" class="product-thumb__link">
-                                    <img src="__IMG__/goods/{$vo.thumb_img}" alt="">
-                                </a>
-                            </div>
-                            <div class="product-title"><a href="goods/{$vo.id}">{$vo.goods_name}</a></div>
-                            <div class="price">
-                                <ins><span class="amount">${$vo.goods_price}</span></ins>
-                                {if $vo.percentage > 0}
-                                <del><span class="amount">${$vo.origin_price}</span></del>
-                                {/if}
-                            </div>
-                        </li>
-                        {/foreach}
-                    </ul>
-                    <nav class="shop-pagination text-center">
-                        <ul class="pagination justify-content-center">
-
-                            <li class="active"><a href="#">01</a></li>
-                            <li><a href="#">02</a></li>
-                            <li><a href="#">03</a></li>
-                            <li><a href="#">04</a></li>
-                            <li><a href="#">05</a></li>
-                            <li><a href="#">...</a></li>
-                            <li><a href="#">28</a></li>
-                            <li>
-                                <a href="#" aria-label="Next">
-                                    <span aria-hidden="true">Next <i class="fa fa-long-arrow-right"></i></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </main>
-        </div>
+{layout name="public/layout" /}
+<div class="page-wrap archive shop">
+    <div class="shop-categories-nav">
+        <nav class="container" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Goods</li>
+            </ol>
+        </nav>
     </div>
+    <div class="page-content">
+        <main class="main-content">
+            <div class="container">
+                <ul class="row products">
+                    {foreach $list_goods as $key => $vo}
+                    <li class="col-md-3 product">
+                        <div class="product-thumb">
+                            {if $vo.percentage > 0}
+                            <span class="onsale">-30%</span>
+                            {/if}
+                            <a href="goods/{$vo.id}" class="product-thumb__link">
+                                <img src="__IMG__/goods/{$vo.thumb_img}" alt="">
+                            </a>
+                        </div>
+                        <div class="product-title"><a href="goods/{$vo.id}">{$vo.goods_name}</a></div>
+                        <div class="price">
+                            <ins><span class="amount">${$vo.goods_price}</span></ins>
+                            {if $vo.percentage > 0}
+                            <del><span class="amount">${$vo.origin_price}</span></del>
+                            {/if}
+                        </div>
+                    </li>
+                    {/foreach}
+                </ul>
+                <nav class="shop-pagination text-center">
+                    <ul class="pagination justify-content-center">
+
+                        <li class="active"><a href="#">01</a></li>
+                        <li><a href="#">02</a></li>
+                        <li><a href="#">03</a></li>
+                        <li><a href="#">04</a></li>
+                        <li><a href="#">05</a></li>
+                        <li><a href="#">...</a></li>
+                        <li><a href="#">28</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">Next <i class="fa fa-long-arrow-right"></i></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </main>
+    </div>
+</div>

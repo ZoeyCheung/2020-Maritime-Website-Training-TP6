@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-06-25 00:05:52
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-23 12:56:00
+ * @LastEditTime: 2020-07-23 18:28:38
  */ 
 // +----------------------------------------------------------------------
 // | 模板设置
@@ -40,6 +40,6 @@ return [
     ),
 
     // 模板布局
-    'layout_on' =>true,
-    'layout_name'=>'public/layout'
+    // 'layout_on' =>true,
+    // 'layout_name'=>'public/layout'
 ];
