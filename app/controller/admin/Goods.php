@@ -5,10 +5,11 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-22 19:52:11
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-22 19:52:24
+ * @LastEditTime: 2020-07-23 19:00:11
  */ 
 namespace app\controller\admin;
 
+use think\facade\View;
 use think\Request;
 
 class Goods
@@ -20,7 +21,10 @@ class Goods
      */
     public function index()
     {
-        //
+        View::assign([
+            'title' => 'Goods Management',
+        ]);
+        return View();
     }
 
     /**

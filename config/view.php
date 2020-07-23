@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-06-25 00:05:52
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-23 18:28:38
+ * @LastEditTime: 2020-07-23 18:48:13
  */ 
 // +----------------------------------------------------------------------
 // | 模板设置
@@ -37,6 +37,10 @@ return [
         '__CSS__'=>'/static/css',
         '__JS__'=>'/static/js',
         '__IMG__'=>'/static/images',
+        '__ADMIN_CSS__'=>'/static/admin/css',
+        '__ADMIN_JS__'=>'/static/admin/js',
+        '__ADMIN_IMG__'=>'/static/admin/img',
+        '__ADMIN_PLUGINS__'=>'/static/admin/plugins',
     ),
 
     // 模板布局

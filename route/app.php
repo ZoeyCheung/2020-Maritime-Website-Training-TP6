@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-06-25 00:05:52
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-23 08:29:56
+ * @LastEditTime: 2020-07-23 19:05:43
  */ 
 use think\facade\Route;
 
@@ -27,5 +27,7 @@ Route::group(function(){
 
 Route::group('administrator',function(){
     Route::rule('/', 'Index/index');
+    Route::resource('/goods','Goods');
+    Route::resource('/user','User');
 })->prefix('admin.');
 
