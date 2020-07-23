@@ -107,14 +107,16 @@
                         {if $vo.percentage > 0}
                         <span class="onsale">{$vo.percentage}%</span>
                         {/if}
-                        <a href="single-product.html" class="product-thumb__link">
+                        <a href="goods/{$vo.id}" class="product-thumb__link">
                             <img src="__IMG__/goods/{$vo.thumb_img}" alt="">
                         </a>
                     </div>
-                    <div class="product-title"><a href="single-product.html">{$vo.goods_name}</a></div>
+                    <div class="product-title"><a href="goods/{$vo.id}">{$vo.goods_name}</a></div>
                     <div class="price">
                         <ins></ins><span class="amount">${$vo.goods_price}</span></ins>
+                        {if $vo.percentage > 0}
                         <del><span class="amount">${$vo.origin_price}</span></del>
+                        {/if}
                     </div>
                 </li>
                 {/foreach}

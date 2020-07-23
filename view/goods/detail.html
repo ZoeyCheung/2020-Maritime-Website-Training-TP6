@@ -13,37 +13,31 @@
             <div class="row">
                 <div class="col-lg-5">
                     <div class="product-thumb">
+                        {if $goods.percentage}
                         <span class="onsale">-25%</span>
+                        {/if}
                         <div class="product-gallery">
                             <div id="js-product-big" class="product-gallery__big">
-                                <img src="__IMG__/goods/05_home_page_001.jpg" alt="">
+                                <img src="__IMG__/goods/{$goods.thumb_img}" alt="{$goods.goods_name}">
                             </div>
                             <div id="js-product-nav" class="row product-gallery-thumbs">
-                                <div class="col-sm-3 product-gallery-thumbs__item active"
-                                    data-large-src="__IMG__/goods/05_home_page_001.jpg">
-                                    <img src="__IMG__/goods/05_home_page_001.jpg" alt="">
-                                </div>
+                                {foreach $goods.goodsImg as $key => $vo}
                                 <div class="col-sm-3 product-gallery-thumbs__item"
-                                    data-large-src="__IMG__/goods/product-single-big-3.jpg">
-                                    <img src="__IMG__/goods/05_home_page_004.jpg" alt="">
+                                    data-large-src="__IMG__/goods/{$vo.img_url}">
+                                    <img src="__IMG__/goods/{$vo.img_url}" alt="{$vo.img_url}">
                                 </div>
-                                <div class="col-sm-3 product-gallery-thumbs__item"
-                                    data-large-src="__IMG__/goods/product-single-big-4.jpg">
-                                    <img src="__IMG__/goods/05_home_page_005.jpg" alt="">
-                                </div>
-                                <div class="col-sm-3 product-gallery-thumbs__item"
-                                    data-large-src="__IMG__/goods/product-single-big-5.jpg">
-                                    <img src="__IMG__/goods/05_home_page_006.jpg" alt="">
-                                </div>
+                                {/foreach}
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="product-summary summary col-lg-7">
-                    <h1 class="h2 product-title">dutch grey bag</h1>
+                    <h1 class="h2 product-title">{$goods.goods_name}</h1>
                     <div class="price">
-                        <ins><span class="amount">$33.00</span></ins>
-                        <del><span class="amount">$44.00</span></del>
+                        <ins><span class="amount">${$goods.goods_price}</span></ins>
+                        {if $goods.percentage}
+                        <del><span class="amount">${$goods.origin_price}</span></del>
+                        {/if}
                     </div>
                     <form action="/" class="cart-form">
                         <div>
@@ -84,15 +78,7 @@
                     <div class="description-block">
                         <h3 class="description-title">Description</h3>
                         <div class="product-description text-content">
-                            <p>Dutch Bag crafts high quality tees and accessories that are comfortable,
-                                stylish, and imbued with the laid back spirit of Taffle. Comfortably holds
-                                your sneakers and your laptop in addition to a plethora of other
-                                necessities, while keeping everything organized and well protected.
-                            </p>
-                            <p><strong>Material:</strong>
-                                Body — 100% cotton trims / other — 100% polyurethane.</p>
-                            <p><strong>Care:</strong>
-                                Wipe clean with a damp sponge, do not dry clean, do not iron</p>
+                            {$goods.goods_description|raw}
                         </div>
                     </div>
                 </div>
@@ -105,52 +91,25 @@
                 <h2 class="h3 section-title-heading">Other items you may like</h2>
             </div>
             <ul class="products featured-products row">
+                {foreach $recommend_goods as $key => $vo}
                 <li class="product col-md-3">
                     <div class="product-thumb">
-                        <span class="onsale">-30%</span>
-                        <a href="single-product.html" class="product-thumb__link">
-                            <img src="__IMG__/goods/01_home_page_005.jpg" alt="">
+                        {if $vo.percentage > 0}
+                        <span class="onsale">{$vo.percentage}%</span>
+                        {/if}
+                        <a href="/goods/{$vo.id}" class="product-thumb__link">
+                            <img src="__IMG__/goods/{$vo.thumb_img}" alt="">
                         </a>
                     </div>
-                    <div class="product-title"><a href="single-product.html">Cogen warm lamp</a></div>
+                    <div class="product-title"><a href="/goods/{$vo.id}">{$vo.goods_name}</a></div>
                     <div class="price">
-                        <ins><span class="amount">$56.00</span></ins>
-                        <del><span class="amount">$73.00</span></del>
+                        <ins></ins><span class="amount">${$vo.goods_price}</span></ins>
+                        {if $vo.percentage > 0}
+                        <del><span class="amount">${$vo.origin_price}</span></del>
+                        {/if}
                     </div>
                 </li>
-                <li class="product col-md-3">
-                    <div class="product-thumb">
-                        <a href="single-product.html" class="product-thumb__link">
-                            <img src="__IMG__/goods/01_home_page_006.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="product-title"><a href="single-product.html">Dutch grey bag</a></div>
-                    <div class="price">
-                        <span class="amount">$33.00</span>
-                    </div>
-                </li>
-                <li class="product col-md-3">
-                    <div class="product-thumb">
-                        <a href="single-product.html" class="product-thumb__link">
-                            <img src="__IMG__/goods/01_home_page_007.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="product-title"><a href="single-product.html">Wood tablet deck</a></div>
-                    <div class="price">
-                        <span class="amount">$30.00</span>
-                    </div>
-                </li>
-                <li class="product col-md-3">
-                    <div class="product-thumb">
-                        <a href="single-product.html" class="product-thumb__link">
-                            <img src="__IMG__/goods/01_home_page_008.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="product-title"><a href="single-product.html">Roniq watch</a></div>
-                    <div class="price">
-                        <span class="amount">$128.00</span>
-                    </div>
-                </li>
+                {/foreach}
             </ul>
         </div>
     </section>

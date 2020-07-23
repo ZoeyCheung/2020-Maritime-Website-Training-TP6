@@ -5,10 +5,11 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-20 18:54:54
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-22 19:42:05
- */ 
+ * @LastEditTime: 2020-07-23 18:00:48
+ */
 
 namespace app\controller;
+
 use app\BaseController;
 use app\model\Goods as GoodsModel;
 use app\model\GoodsImg as GoodsImgModel;
@@ -62,7 +63,7 @@ class Datatest extends BaseController
         // return json(GoodsModel::has('goodsImg','>',0)->select());
 
         $goods = GoodsModel::select();
-        foreach($goods as $item){
+        foreach ($goods as $item) {
             $item['percentage'] = $item->percentage;
             $goodsNew[] = $item;
         }
@@ -188,6 +189,7 @@ class Datatest extends BaseController
                 'goods_name' => 'TOUCHLESS BOTTLE',
                 'origin_price' => 178,
                 'goods_price' => 125,
+                'percentage' => 30,
                 'thumb_img' => '02_catalogue_page_001.jpg'
             ],
             [
@@ -195,6 +197,7 @@ class Datatest extends BaseController
                 'goods_name' => 'COFFEE MACHINE',
                 'origin_price' => 178,
                 'goods_price' => 178,
+                'percentage' => 0,
                 'thumb_img' => '02_catalogue_page_002.jpg'
             ],
             [
@@ -202,6 +205,7 @@ class Datatest extends BaseController
                 'goods_name' => 'WOOD TABLET DECK',
                 'origin_price' => 25,
                 'goods_price' => 25,
+                'percentage' => 0,
                 'thumb_img' => '01_home_page_007.jpg'
             ],
             [
@@ -209,6 +213,7 @@ class Datatest extends BaseController
                 'goods_name' => 'STONE CARPET',
                 'origin_price' => 34,
                 'goods_price' => 34,
+                'percentage' => 0,
                 'thumb_img' => '02_catalogue_page_004.jpg'
             ],
             [
@@ -216,6 +221,7 @@ class Datatest extends BaseController
                 'goods_name' => 'POLY KNIFE',
                 'origin_price' => 8,
                 'goods_price' => 8,
+                'percentage' => 0,
                 'thumb_img' => '02_catalogue_page_005.jpg'
             ],
             [
@@ -223,6 +229,7 @@ class Datatest extends BaseController
                 'goods_name' => 'DUTCH GREY BAG',
                 'origin_price' => 33,
                 'goods_price' => 33,
+                'percentage' => 0,
                 'thumb_img' => '01_home_page_006.jpg'
             ],
             [
@@ -230,6 +237,7 @@ class Datatest extends BaseController
                 'goods_name' => 'MONACO SET LAMP',
                 'origin_price' => 19,
                 'goods_price' => 19,
+                'percentage' => 0,
                 'thumb_img' => '02_catalogue_page_007.jpg'
             ],
             [
@@ -237,6 +245,7 @@ class Datatest extends BaseController
                 'goods_name' => 'COSMO ICE BOTTLE',
                 'origin_price' => 27,
                 'goods_price' => 27,
+                'percentage' => 0,
                 'thumb_img' => '02_catalogue_page_008.jpg'
             ],
             [
@@ -244,6 +253,7 @@ class Datatest extends BaseController
                 'goods_name' => 'COGEN WARM LAMP',
                 'origin_price' => 56,
                 'goods_price' => 56,
+                'percentage' => 0,
                 'thumb_img' => '01_home_page_005.jpg'
             ],
 
@@ -252,6 +262,7 @@ class Datatest extends BaseController
                 'goods_name' => 'GREEN CARD PEN',
                 'origin_price' => 12,
                 'goods_price' => 12,
+                'percentage' => 0,
                 'thumb_img' => '02_catalogue_page_010.jpg'
             ],
             [
@@ -259,6 +270,7 @@ class Datatest extends BaseController
                 'goods_name' => 'CONFETTI LAMP',
                 'origin_price' => 60,
                 'goods_price' => 45,
+                'percentage' => 25,
                 'thumb_img' => '02_catalogue_page_011.jpg'
             ],
             [
@@ -266,6 +278,7 @@ class Datatest extends BaseController
                 'goods_name' => 'HOP TABLET COVER',
                 'origin_price' => 20,
                 'goods_price' => 20,
+                'percentage' => 0,
                 'thumb_img' => '02_catalogue_page_012.jpg'
             ]
         ];
@@ -281,19 +294,19 @@ class Datatest extends BaseController
     {
         $data = [
             [
-                'goods_id' => 42,
+                'goods_id' => 102,
                 'img_url' => 'product-single-big-2.jpg'
             ],
             [
-                'goods_id' => 42,
+                'goods_id' => 102,
                 'img_url' => 'product-single-big-3.jpg'
             ],
             [
-                'goods_id' => 42,
+                'goods_id' => 102,
                 'img_url' => 'product-single-big-4.jpg'
             ],
             [
-                'goods_id' => 42,
+                'goods_id' => 102,
                 'img_url' => 'product-single-big-5.jpg'
             ]
         ];

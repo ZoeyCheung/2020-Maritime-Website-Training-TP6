@@ -11,142 +11,25 @@
             <main class="main-content">
                 <div class="container">
                     <ul class="row products">
+                        {foreach $list_goods as $key => $vo}
                         <li class="col-md-3 product">
                             <div class="product-thumb">
+                                {if $vo.percentage > 0}
                                 <span class="onsale">-30%</span>
-                                <a href="single-product.html" class="product-thumb__link">
-                                    <img src="__IMG__/goods/02_catalogue_page_001.jpg" alt="">
+                                {/if}
+                                <a href="goods/{$vo.id}" class="product-thumb__link">
+                                    <img src="__IMG__/goods/{$vo.thumb_img}" alt="">
                                 </a>
                             </div>
-                            <div class="product-title"><a href="single-product.html">Touchless bottle</a></div>
+                            <div class="product-title"><a href="goods/{$vo.id}">{$vo.goods_name}</a></div>
                             <div class="price">
-                                <ins><span class="amount">$15.00</span></ins>
-                                <del><span class="amount">$178.00</span></del>
+                                <ins><span class="amount">${$vo.goods_price}</span></ins>
+                                {if $vo.percentage > 0}
+                                <del><span class="amount">${$vo.origin_price}</span></del>
+                                {/if}
                             </div>
                         </li>
-                        <li class="col-md-3 product">
-                            <div class="product-thumb">
-                                <a href="single-product.html" class="product-thumb__link">
-                                    <img src="__IMG__/goods/02_catalogue_page_002.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="product-title"><a href="single-product.html">Coffee machine</a></div>
-                            <div class="price">
-                                <span class="amount">$178.00</span>
-                            </div>
-                        </li>
-                        <li class="col-md-3 product">
-                            <div class="product-thumb">
-                                <a href="single-product.html" class="product-thumb__link">
-                                    <img src="__IMG__/goods/01_home_page_007.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="product-title"><a href="single-product.html">Wood tablet deck</a></div>
-                            <div class="price">
-                                <span class="amount">$25.00</span>
-                            </div>
-                        </li>
-                        <li class="col-md-3 product">
-                            <div class="product-thumb">
-                                <a href="single-product.html" class="product-thumb__link">
-                                    <img src="__IMG__/goods/02_catalogue_page_004.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="product-title"><a href="single-product.html">Stone carpet</a></div>
-                            <div class="price">
-                                <span class="amount">$34.00</span>
-                            </div>
-                        </li>
-                        <li class="col-md-3 product">
-                            <div class="product-thumb">
-                                <a href="single-product.html" class="product-thumb__link">
-                                    <img src="__IMG__/goods/02_catalogue_page_005.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="product-title"><a href="single-product.html">poly knife</a></div>
-                            <div class="price">
-                                <span class="amount">$8.00</span>
-                            </div>
-                        </li>
-                        <li class="col-md-3 product">
-                            <div class="product-thumb">
-                                <a href="single-product.html" class="product-thumb__link">
-                                    <img src="__IMG__/goods/01_home_page_006.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="product-title"><a href="single-product.html">Dutch grey bag</a></div>
-                            <div class="price">
-                                <span class="amount">$33.00</span>
-                            </div>
-                        </li>
-                        <li class="col-md-3 product">
-                            <div class="product-thumb">
-                                <a href="single-product.html" class="product-thumb__link">
-                                    <img src="__IMG__/goods/02_catalogue_page_007.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="product-title"><a href="single-product.html">Monaco Set lamp</a></div>
-                            <div class="price">
-                                <span class="amount">$19.00</span>
-                            </div>
-                        </li>
-                        <li class="col-md-3 product">
-                            <div class="product-thumb">
-                                <a href="single-product.html" class="product-thumb__link">
-                                    <img src="__IMG__/goods/02_catalogue_page_008.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="product-title"><a href="single-product.html">Cosmo ice bottle</a></div>
-                            <div class="price">
-                                <span class="amount">$27.00</span>
-                            </div>
-                        </li>
-                        <li class="col-md-3 product">
-                            <div class="product-thumb">
-                                <a href="single-product.html" class="product-thumb__link">
-                                    <img src="__IMG__/goods/01_home_page_005.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="product-title"><a href="single-product.html">Cogen warm lamp</a></div>
-                            <div class="price">
-                                <span class="amount">$56.00</span>
-                            </div>
-                        </li>
-                        <li class="col-md-3 product">
-                            <div class="product-thumb">
-                                <a href="single-product.html" class="product-thumb__link">
-                                    <img src="__IMG__/goods/02_catalogue_page_010.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="product-title"><a href="single-product.html">green Card pen</a></div>
-                            <div class="price">
-                                <span class="amount">$12.00</span>
-                            </div>
-                        </li>
-                        <li class="col-md-3 product">
-                            <div class="product-thumb">
-                                <span class="onsale">-25%</span>
-                                <a href="single-product.html" class="product-thumb__link">
-                                    <img src="__IMG__/goods/02_catalogue_page_011.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="product-title"><a href="single-product.html">Confetti lamp</a></div>
-                            <div class="price">
-                                <ins><span class="amount">$45.00</span></ins>
-                                <del><span class="amount">$60.00</span></del>
-                            </div>
-                        </li>
-                        <li class="col-md-3 product">
-                            <div class="product-thumb">
-                                <a href="single-product.html" class="product-thumb__link">
-                                    <img src="__IMG__/goods/02_catalogue_page_012.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="product-title"><a href="single-product.html">hop tablet cover</a></div>
-                            <div class="price">
-                                <span class="amount">$20.00</span>
-                            </div>
-                        </li>
+                        {/foreach}
                     </ul>
                     <nav class="shop-pagination text-center">
                         <ul class="pagination justify-content-center">

@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-20 16:08:22
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-23 13:13:22
+ * @LastEditTime: 2020-07-23 14:35:56
  */
 
 namespace app\controller;
@@ -18,8 +18,11 @@ class Goods extends BaseController
 {
     public function index()
     {
+        $goods = ModelGoods::order(['percentage'=>'desc','id'=>'desc'])->select();
+        
         View::assign([
             'title' => 'Goods',
+            'list_goods' => $goods
         ]);
         return View();
         // return "goods";
@@ -27,11 +30,14 @@ class Goods extends BaseController
 
     public function detail($id)
     {
-        $goods = ModelGoods::find($id);
+        $goods = ModelGoods::with('goodsImg')->find($id);
+
+        $recommend_goods = ModelGoods::where('is_recommend',1)->limit(4)->order(['percentage'=>'desc','id'=>'desc'])->select();
 
         View::assign([
             'title' => $goods->goods_name,
-            'goods' => $goods
+            'goods' => $goods,
+            'recommend_goods' => $recommend_goods,
         ]);
 
         return View();
