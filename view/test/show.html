@@ -101,23 +101,52 @@
                 <h2 class="h3 section-title-heading">Featured products</h2>
             </div>
             <ul class="products featured-products row">
-                {foreach $list_goods as $key => $vo}
                 <li class="product col-md-3">
                     <div class="product-thumb">
-                        {if $vo.percentage > 0}
-                        <span class="onsale">{$vo.percentage}%</span>
-                        {/if}
+                        <span class="onsale">-30%</span>
                         <a href="single-product.html" class="product-thumb__link">
-                            <img src="__IMG__/goods/{$vo.thumb_img}" alt="">
+                            <img src="__IMG__/goods/01_home_page_005.jpg" alt="">
                         </a>
                     </div>
-                    <div class="product-title"><a href="single-product.html">{$vo.goods_name}</a></div>
+                    <div class="product-title"><a href="single-product.html">Cogen warm lamp</a></div>
                     <div class="price">
-                        <ins></ins><span class="amount">${$vo.goods_price}</span></ins>
-                        <del><span class="amount">${$vo.origin_price}</span></del>
+                        <ins><span class="amount">$56.00</span></ins>
+                        <del><span class="amount">$73.00</span></del>
                     </div>
                 </li>
-                {/foreach}
+                <li class="product col-md-3">
+                    <div class="product-thumb">
+                        <a href="single-product.html" class="product-thumb__link">
+                            <img src="__IMG__/goods/01_home_page_006.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="product-title"><a href="single-product.html">Dutch grey bag</a></div>
+                    <div class="price">
+                        <span class="amount">$33.00</span>
+                    </div>
+                </li>
+                <li class="product col-md-3">
+                    <div class="product-thumb">
+                        <a href="single-product.html" class="product-thumb__link">
+                            <img src="__IMG__/goods/01_home_page_007.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="product-title"><a href="single-product.html">Wood tablet deck</a></div>
+                    <div class="price">
+                        <span class="amount">$30.00</span>
+                    </div>
+                </li>
+                <li class="product col-md-3">
+                    <div class="product-thumb">
+                        <a href="single-product.html" class="product-thumb__link">
+                            <img src="__IMG__/goods/01_home_page_008.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="product-title"><a href="single-product.html">Roniq watch</a></div>
+                    <div class="price">
+                        <span class="amount">$128.00</span>
+                    </div>
+                </li>
             </ul>
         </div>
     </section>

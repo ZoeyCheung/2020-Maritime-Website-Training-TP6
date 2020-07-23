@@ -5,25 +5,35 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-20 16:08:22
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-22 19:30:40
- */ 
+ * @LastEditTime: 2020-07-23 13:13:22
+ */
 
 namespace app\controller;
 
 use app\BaseController;
+use app\model\Goods as ModelGoods;
+use think\facade\View;
 
 class Goods extends BaseController
 {
     public function index()
     {
+        View::assign([
+            'title' => 'Goods',
+        ]);
         return View();
         // return "goods";
     }
 
     public function detail($id)
     {
-        // return View();
-        return 'goods detail ' . $id;
-        // return "goods detail";
+        $goods = ModelGoods::find($id);
+
+        View::assign([
+            'title' => $goods->goods_name,
+            'goods' => $goods
+        ]);
+
+        return View();
     }
 }

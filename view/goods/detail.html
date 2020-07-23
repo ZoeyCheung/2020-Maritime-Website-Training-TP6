@@ -1,240 +1,157 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Maritime Website Training 2020 by Zoey Cheung">
-    <meta name="keywords" content="Website,CSS,HTML,JS,PHP">
-    <title>E-commerce goods</title>
-    <link rel="shortcut icon" href="__IMG__/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="__CSS__/font-awesome.min.css">
-    <link rel="stylesheet" href="__CSS__/bootstrap.min.css">
-    <link rel="stylesheet" href="__CSS__/main.css">
-</head>
-
-<body>
-    <div class="head-line"></div>
-    <header class="page-header">
+<div class="page-wrap single shop">
+    <div class="shop-categories-nav">
+        <nav class="container" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/goods">Goods</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{$goods.goods_name}</li>
+            </ol>
+        </nav>
+    </div>
+    <section class="section-single-product product">
         <div class="container">
-            <!-- Image and text -->
-            <nav class="navbar  navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="#">
-                    <i class="fa fa-grav logo"></i>
-                    <strong>E-commerce</strong>
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Goods</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Administrator Login</a>
-                        </li>
-                    </ul>
-                    <div class="nav-login">
-                        User Name | <a href="#">Login Out</a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <div class="page-wrap single shop">
-        <div class="shop-categories-nav">
-            <nav class="container" aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Goods</li>
-                </ol>
-            </nav>
-        </div>
-        <section class="section-single-product product">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <div class="product-thumb">
-                            <span class="onsale">-25%</span>
-                            <div class="product-gallery">
-                                <div id="js-product-big" class="product-gallery__big">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="product-thumb">
+                        <span class="onsale">-25%</span>
+                        <div class="product-gallery">
+                            <div id="js-product-big" class="product-gallery__big">
+                                <img src="__IMG__/goods/05_home_page_001.jpg" alt="">
+                            </div>
+                            <div id="js-product-nav" class="row product-gallery-thumbs">
+                                <div class="col-sm-3 product-gallery-thumbs__item active"
+                                    data-large-src="__IMG__/goods/05_home_page_001.jpg">
                                     <img src="__IMG__/goods/05_home_page_001.jpg" alt="">
                                 </div>
-                                <div id="js-product-nav" class="row product-gallery-thumbs">
-                                    <div class="col-sm-3 product-gallery-thumbs__item active"
-                                        data-large-src="__IMG__/goods/05_home_page_001.jpg">
-                                        <img src="__IMG__/goods/05_home_page_001.jpg" alt="">
-                                    </div>
-                                    <div class="col-sm-3 product-gallery-thumbs__item"
-                                        data-large-src="__IMG__/goods/product-single-big-3.jpg">
-                                        <img src="__IMG__/goods/05_home_page_004.jpg" alt="">
-                                    </div>
-                                    <div class="col-sm-3 product-gallery-thumbs__item"
-                                        data-large-src="__IMG__/goods/product-single-big-4.jpg">
-                                        <img src="__IMG__/goods/05_home_page_005.jpg" alt="">
-                                    </div>
-                                    <div class="col-sm-3 product-gallery-thumbs__item"
-                                        data-large-src="__IMG__/goods/product-single-big-5.jpg">
-                                        <img src="__IMG__/goods/05_home_page_006.jpg" alt="">
-                                    </div>
+                                <div class="col-sm-3 product-gallery-thumbs__item"
+                                    data-large-src="__IMG__/goods/product-single-big-3.jpg">
+                                    <img src="__IMG__/goods/05_home_page_004.jpg" alt="">
+                                </div>
+                                <div class="col-sm-3 product-gallery-thumbs__item"
+                                    data-large-src="__IMG__/goods/product-single-big-4.jpg">
+                                    <img src="__IMG__/goods/05_home_page_005.jpg" alt="">
+                                </div>
+                                <div class="col-sm-3 product-gallery-thumbs__item"
+                                    data-large-src="__IMG__/goods/product-single-big-5.jpg">
+                                    <img src="__IMG__/goods/05_home_page_006.jpg" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="product-summary summary col-lg-7">
-                        <h1 class="h2 product-title">dutch grey bag</h1>
-                        <div class="price">
-                            <ins><span class="amount">$33.00</span></ins>
-                            <del><span class="amount">$44.00</span></del>
+                </div>
+                <div class="product-summary summary col-lg-7">
+                    <h1 class="h2 product-title">dutch grey bag</h1>
+                    <div class="price">
+                        <ins><span class="amount">$33.00</span></ins>
+                        <del><span class="amount">$44.00</span></del>
+                    </div>
+                    <form action="/" class="cart-form">
+                        <div>
+                            <label for="quantity">Qty:</label>
+                            <select id="quantity">
+                                <option value="1" data-select2-id="5">1</option>
+                                <option value="2" data-select2-id="8">2</option>
+                                <option value="3" data-select2-id="9">3</option>
+                            </select>
                         </div>
-                        <form action="/" class="cart-form">
-                            <div>
-                                <label for="quantity">Qty:</label>
-                                <select id="quantity">
-                                    <option value="1" data-select2-id="5">1</option>
-                                    <option value="2" data-select2-id="8">2</option>
-                                    <option value="3" data-select2-id="9">3</option>
-                                </select>
-                            </div>
-                        </form>
-                        <a href="cart.html" class="btn btn-primary btn-lg add_to_cart_button">Add to cart</a>
-                        <div class="product-summary-featured">
-                            <div class="row">
-                                <div class="col-md-4 product-featured-item">
-                                    <div class="icon-box icon-box-left icon-box-circle">
-                                        <div class="icon-box__icon"><i class="fa fa-shopping-basket"></i>
-                                        </div>
-                                        <div class="icon-box__title">Free shipping</div>
+                    </form>
+                    <a href="cart.html" class="btn btn-primary btn-lg add_to_cart_button">Add to cart</a>
+                    <div class="product-summary-featured">
+                        <div class="row">
+                            <div class="col-md-4 product-featured-item">
+                                <div class="icon-box icon-box-left icon-box-circle">
+                                    <div class="icon-box__icon"><i class="fa fa-shopping-basket"></i>
                                     </div>
-                                </div>
-                                <div class="col-md-4 product-featured-item">
-                                    <div class="icon-box icon-box-left icon-box-circle">
-                                        <div class="icon-box__icon"><i class="fa fa-thumbs-up"></i>
-                                        </div>
-                                        <div class="icon-box__title">100% secure</div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 product-featured-item">
-                                    <div class="icon-box icon-box-left icon-box-circle">
-                                        <div class="icon-box__icon"><i class="fa fa-retweet"></i>
-                                        </div>
-                                        <div class="icon-box__title">30 day refund</div>
-                                    </div>
+                                    <div class="icon-box__title">Free shipping</div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="description-block">
-                            <h3 class="description-title">Description</h3>
-                            <div class="product-description text-content">
-                                <p>Dutch Bag crafts high quality tees and accessories that are comfortable,
-                                    stylish, and imbued with the laid back spirit of Taffle. Comfortably holds
-                                    your sneakers and your laptop in addition to a plethora of other
-                                    necessities, while keeping everything organized and well protected.
-                                </p>
-                                <p><strong>Material:</strong>
-                                    Body — 100% cotton trims / other — 100% polyurethane.</p>
-                                <p><strong>Care:</strong>
-                                    Wipe clean with a damp sponge, do not dry clean, do not iron</p>
+                            <div class="col-md-4 product-featured-item">
+                                <div class="icon-box icon-box-left icon-box-circle">
+                                    <div class="icon-box__icon"><i class="fa fa-thumbs-up"></i>
+                                    </div>
+                                    <div class="icon-box__title">100% secure</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 product-featured-item">
+                                <div class="icon-box icon-box-left icon-box-circle">
+                                    <div class="icon-box__icon"><i class="fa fa-retweet"></i>
+                                    </div>
+                                    <div class="icon-box__title">30 day refund</div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="description-block">
+                        <h3 class="description-title">Description</h3>
+                        <div class="product-description text-content">
+                            <p>Dutch Bag crafts high quality tees and accessories that are comfortable,
+                                stylish, and imbued with the laid back spirit of Taffle. Comfortably holds
+                                your sneakers and your laptop in addition to a plethora of other
+                                necessities, while keeping everything organized and well protected.
+                            </p>
+                            <p><strong>Material:</strong>
+                                Body — 100% cotton trims / other — 100% polyurethane.</p>
+                            <p><strong>Care:</strong>
+                                Wipe clean with a damp sponge, do not dry clean, do not iron</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <section class="section-featured-products">
-            <div class="container">
-                <div class="section-title text-center">
-                    <h2 class="h3 section-title-heading">Other items you may like</h2>
-                </div>
-                <ul class="products featured-products row">
-                    <li class="product col-md-3">
-                        <div class="product-thumb">
-                            <span class="onsale">-30%</span>
-                            <a href="single-product.html" class="product-thumb__link">
-                                <img src="__IMG__/goods/01_home_page_005.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="product-title"><a href="single-product.html">Cogen warm lamp</a></div>
-                        <div class="price">
-                            <ins><span class="amount">$56.00</span></ins>
-                            <del><span class="amount">$73.00</span></del>
-                        </div>
-                    </li>
-                    <li class="product col-md-3">
-                        <div class="product-thumb">
-                            <a href="single-product.html" class="product-thumb__link">
-                                <img src="__IMG__/goods/01_home_page_006.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="product-title"><a href="single-product.html">Dutch grey bag</a></div>
-                        <div class="price">
-                            <span class="amount">$33.00</span>
-                        </div>
-                    </li>
-                    <li class="product col-md-3">
-                        <div class="product-thumb">
-                            <a href="single-product.html" class="product-thumb__link">
-                                <img src="__IMG__/goods/01_home_page_007.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="product-title"><a href="single-product.html">Wood tablet deck</a></div>
-                        <div class="price">
-                            <span class="amount">$30.00</span>
-                        </div>
-                    </li>
-                    <li class="product col-md-3">
-                        <div class="product-thumb">
-                            <a href="single-product.html" class="product-thumb__link">
-                                <img src="__IMG__/goods/01_home_page_008.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="product-title"><a href="single-product.html">Roniq watch</a></div>
-                        <div class="price">
-                            <span class="amount">$128.00</span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-    </div>
-
-    <footer class="page-footer">
-        <div class="container">
-            <nav class="footer-navigation">
-                <ul class="nav justify-content-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shop.html">Goods</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="promo.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">Administrator</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="row footer-bottom">
-                <div class="col-md-6">Jin ICP No. 16006370</div>
-                <div class="col-md-6 copyright text-md-right">© 2020 Zoey Cheung. All rights reserved.</div>
             </div>
         </div>
-    </footer>
-    <script src="__JS__/jquery-3.5.1.min.js"></script>
-    <script src="__JS__/bootstrap.min.js"></script>
-    <script src="__JS__/Validform_v5.3.2_min.js"></script>
-    <script src="__JS__/main.js"></script>
-</body>
-
-</html>
+    </section>
+    <section class="section-featured-products">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2 class="h3 section-title-heading">Other items you may like</h2>
+            </div>
+            <ul class="products featured-products row">
+                <li class="product col-md-3">
+                    <div class="product-thumb">
+                        <span class="onsale">-30%</span>
+                        <a href="single-product.html" class="product-thumb__link">
+                            <img src="__IMG__/goods/01_home_page_005.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="product-title"><a href="single-product.html">Cogen warm lamp</a></div>
+                    <div class="price">
+                        <ins><span class="amount">$56.00</span></ins>
+                        <del><span class="amount">$73.00</span></del>
+                    </div>
+                </li>
+                <li class="product col-md-3">
+                    <div class="product-thumb">
+                        <a href="single-product.html" class="product-thumb__link">
+                            <img src="__IMG__/goods/01_home_page_006.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="product-title"><a href="single-product.html">Dutch grey bag</a></div>
+                    <div class="price">
+                        <span class="amount">$33.00</span>
+                    </div>
+                </li>
+                <li class="product col-md-3">
+                    <div class="product-thumb">
+                        <a href="single-product.html" class="product-thumb__link">
+                            <img src="__IMG__/goods/01_home_page_007.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="product-title"><a href="single-product.html">Wood tablet deck</a></div>
+                    <div class="price">
+                        <span class="amount">$30.00</span>
+                    </div>
+                </li>
+                <li class="product col-md-3">
+                    <div class="product-thumb">
+                        <a href="single-product.html" class="product-thumb__link">
+                            <img src="__IMG__/goods/01_home_page_008.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="product-title"><a href="single-product.html">Roniq watch</a></div>
+                    <div class="price">
+                        <span class="amount">$128.00</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>

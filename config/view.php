@@ -1,4 +1,12 @@
 <?php
+/*
+ * @Description: 
+ * @version: V 1.0
+ * @Author: Zoey Cheung
+ * @Date: 2020-06-25 00:05:52
+ * @LastEditors: Zoey Cheung
+ * @LastEditTime: 2020-07-23 12:56:00
+ */ 
 // +----------------------------------------------------------------------
 // | 模板设置
 // +----------------------------------------------------------------------
@@ -29,5 +37,9 @@ return [
         '__CSS__'=>'/static/css',
         '__JS__'=>'/static/js',
         '__IMG__'=>'/static/images',
-    )
+    ),
+
+    // 模板布局
+    'layout_on' =>true,
+    'layout_name'=>'public/layout'
 ];

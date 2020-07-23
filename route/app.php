@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-06-25 00:05:52
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-22 19:49:17
+ * @LastEditTime: 2020-07-23 08:29:56
  */ 
 use think\facade\Route;
 
