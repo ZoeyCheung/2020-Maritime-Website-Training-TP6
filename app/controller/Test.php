@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-22 20:30:57
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-23 12:57:59
+ * @LastEditTime: 2020-07-24 12:51:23
  */
 
 namespace app\controller;
@@ -14,6 +14,7 @@ use app\BaseController;
 use app\facade\Test as FacadeTest;
 use app\validate\User;
 use think\exception\ValidateException;
+use think\facade\Log;
 use think\facade\Request;
 use think\facade\View;
 
@@ -64,6 +65,14 @@ class Test extends BaseController
         View::assign([
             'title' => 'test',
         ]);
+        return view();
+    }
+
+    public function log(){
+        Log::record('测试日志');
+    }
+
+    public function middleWare(){
         return view();
     }
 }

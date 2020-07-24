@@ -5,8 +5,10 @@
  * @Author: Zoey Cheung
  * @Date: 2020-06-25 00:05:52
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-23 19:05:43
- */ 
+ * @LastEditTime: 2020-07-24 13:17:28
+ */
+
+use app\middleware\Auth;
 use think\facade\Route;
 
 Route::pattern(['id' => '\d+']);
@@ -16,7 +18,7 @@ Route::rule('/', 'index');
 Route::group('goods', function () {
     Route::rule('/', 'index');
     Route::rule(':id', 'detail');
-})->prefix('Goods/');
+})->prefix('Goods/')->middleware(Auth::class);
 
 Route::group(function(){
     Route::rule('user$', 'index');
@@ -25,9 +27,10 @@ Route::group(function(){
     Route::rule('register', 'register');
 })->prefix('User/');
 
-Route::group('administrator',function(){
-    Route::rule('/', 'Index/index');
+Route::group('dashboard',function(){
+    Route::resource('/','index');
     Route::resource('/goods','Goods');
     Route::resource('/user','User');
 })->prefix('admin.');
+// ->middleware(Auth::class);
 
