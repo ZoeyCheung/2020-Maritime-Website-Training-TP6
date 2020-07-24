@@ -8,9 +8,9 @@
 	<meta name="keywords" content="Website,CSS,HTML,JS,PHP">
 	<title>E-commerce Login</title>
 	<link rel="shortcut icon" href="__IMG__/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="__CSS__/font-awesome.min.css">
-    <link rel="stylesheet" href="__CSS__/bootstrap.min.css">
-    <link rel="stylesheet" href="__CSS__/main.css">
+	<link rel="stylesheet" href="__CSS__/font-awesome.min.css">
+	<link rel="stylesheet" href="__CSS__/bootstrap.min.css">
+	<link rel="stylesheet" href="__CSS__/main.css">
 </head>
 
 <body>
@@ -38,7 +38,9 @@
 								<div class="form-group">
 									<input class="form-control" name="password" type="password" placeholder="Password">
 								</div>
-								<div class="form-group">
+								<div class="form-group verification-code">
+									<input class="form-control" name="verification_code" type="text"
+										placeholder="Verification code">
 									{:captcha_img()}
 								</div>
 								<div class="form-group">

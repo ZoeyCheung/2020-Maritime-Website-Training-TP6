@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-22 18:42:39
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-24 10:24:28
+ * @LastEditTime: 2020-07-24 17:45:29
  */ 
 
 namespace app\controller;
@@ -41,7 +41,7 @@ class User extends BaseController
         //     dump($e->getError());
         // }
         $logoInfo = request()->param();
-        var_dump($logoInfo);
+        // var_dump($logoInfo);
         // $result = validate(User::class)->check($logoInfo);
 
         return View('./login');

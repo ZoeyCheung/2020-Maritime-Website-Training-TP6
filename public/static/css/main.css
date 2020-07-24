@@ -240,7 +240,7 @@ ul {
     overflow: hidden;
 }
 
-.product-thumb img{
+.product-thumb img {
     width: 100%;
 }
 
@@ -562,9 +562,11 @@ h1.product-title {
     text-align: center;
     width: 32px;
 }
-.social-login > span {
+
+.social-login>span {
     margin-right: 8px;
 }
+
 .social-login>a.qq {
     background-color: dodgerblue;
 }
@@ -572,4 +574,19 @@ h1.product-title {
 .login-wrapper .login-box .login-right .dont-have {
     color: var(--text-gray);
     margin-top: 1.875rem;
+}
+
+.verification-code {
+    display: inline-block;
+}
+
+.verification-code input {
+    float: left;
+    width: 55%;
+
+}
+
+.verification-code img {
+    float: right;
+    width: 44%;
 }
