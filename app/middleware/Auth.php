@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-24 13:00:07
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-24 13:09:47
+ * @LastEditTime: 2020-07-24 22:29:29
  */ 
 declare (strict_types = 1);
 
@@ -24,7 +24,7 @@ class Auth
     {
         echo 'Auth';
         if(!session('?username')){
-            return redirect('/login');
+            return redirect('/login?url=dashboard');
         }
         return $next($request);
     }

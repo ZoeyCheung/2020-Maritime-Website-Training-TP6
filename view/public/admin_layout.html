@@ -80,13 +80,13 @@
                                     class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
-                                <h6>Allen Davis</h6>
+                                <h6>{:session('nickname')}</h6>
                                 <p class="text-muted mb-0">Administrator</p>
                             </div>
                         </div>
-                        <a class="dropdown-item" href="profile.html">My Profile</a>
-                        <a class="dropdown-item" href="settings.html">Settings</a>
-                        <a class="dropdown-item" href="login.html">Logout</a>
+                        <a class="dropdown-item" href="{:url('/dashboard/profile')}">My Profile</a>
+                        <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item" href="{:url('/logout')}">Logout</a>
                     </div>
                 </li>
                 <!-- /User Menu -->
@@ -106,19 +106,22 @@
                             <span><i class="fe fe-home"></i> Main</span>
                         </li>
                         <li>
-                            <a href="/dashboard"><span>Dashboard</span></a>
+                            <a href="{:url('/dashboard')}"><span>Dashboard</span></a>
                         </li>
                         <li>
-                            <a href="/dashboard/goods"><span>Goods</span></a>
+                            <a href="{:url('/dashboard/goods')}"><span>Goods</span></a>
                         </li>
                         <li>
-                            <a href="/dashboard/user"><span>Users</span></a>
+                            <a href="{:url('/dashboard/user')}"><span>Users</span></a>
                         </li>
                         <li>
                             <a href="#"><span>Categories</span></a>
                         </li>
                         <li>
                             <a href="#"><span>Settings</span></a>
+                        </li>
+                        <li>
+                            <a href="{:url('/logout')}"><span>Quit</span></a>
                         </li>
                     </ul>
                 </div>

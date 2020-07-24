@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-06-25 00:05:52
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-24 13:38:56
+ * @LastEditTime: 2020-07-24 23:07:09
  */
 use think\facade\Route;
 
@@ -16,19 +16,22 @@ Route::rule('/', 'index');
 Route::group('goods', function () {
     Route::rule('/', 'index');
     Route::rule(':id', 'detail');
-})->prefix('Goods/')->middleware(Auth::class);
+})->prefix('Goods/');
 
 Route::group(function(){
     Route::rule('user$', 'index');
     Route::rule('login', 'login');
+    Route::post('check','check');
     Route::rule('logout', 'logout');
     Route::rule('register', 'register');
+    Route::post('adduser','addUser');
+    Route::rule('forgot', 'forgot');
 })->prefix('User/');
 
 Route::group('dashboard',function(){
     Route::resource('/','index');
     Route::resource('/goods','Goods');
     Route::resource('/user','User');
-})->prefix('admin.');
-// ->middleware(Auth::class);
+    Route::resource('/profile','Profile');
+})->prefix('admin.')->middleware(Auth::class);
 

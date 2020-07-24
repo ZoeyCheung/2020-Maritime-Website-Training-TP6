@@ -576,17 +576,17 @@ h1.product-title {
     margin-top: 1.875rem;
 }
 
-.verification-code {
+.captcha {
     display: inline-block;
 }
 
-.verification-code input {
+.captcha input {
     float: left;
     width: 55%;
 
 }
 
-.verification-code img {
+.captcha img {
     float: right;
     width: 44%;
 }

@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-23 08:37:46
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-23 09:04:17
+ * @LastEditTime: 2020-07-24 18:18:08
  */
 
 declare(strict_types=1);
@@ -25,7 +25,8 @@ class User extends Validate
     protected $rule = [
         'username' => 'require|max:20',
         'password' => 'require|min:6',
-        'nickname' => 'require'
+        'nickname' => 'require',
+        'captcha'=>'require|captcha',
     ];
 
     /**
@@ -39,12 +40,14 @@ class User extends Validate
         'username.max' => '用户名不得大于20位',
         'password.require' => '密码不得为空',
         'password.max' => '密码不得少于6位',
-        'nickname.require' => '昵称不得为空'
+        'nickname.require' => '昵称不得为空',
+        'captcha.captcha'=>'验证码错误'
     ];
 
     // 场景验证,场景名称是自定义的
     protected $scene = [
         'insert'=>['username','password','nickname'],
-        'edit' =>['password','nickname']
+        'edit' =>['password','nickname'],
+        'login'=>['username','password','captcha']
     ];
 }
