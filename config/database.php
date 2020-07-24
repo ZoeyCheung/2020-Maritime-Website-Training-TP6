@@ -1,4 +1,12 @@
 <?php
+/*
+ * @Description: 
+ * @version: V 1.0
+ * @Author: Zoey Cheung
+ * @Date: 2020-06-25 00:05:52
+ * @LastEditors: Zoey Cheung
+ * @LastEditTime: 2020-07-24 08:34:27
+ */ 
 
 return [
     // 默认使用的数据库连接配置
@@ -23,11 +31,11 @@ return [
             // 服务器地址
             'hostname'          => env('database.hostname', '127.0.0.1'),
             // 数据库名
-            'database'          => env('database.database', 'ecommerce'),
+            'database'          => env('database.database', 'ecommerce_zrise_'),
             // 用户名
-            'username'          => env('database.username', 'homestead'),
+            'username'          => env('database.username', 'ecommerce_zrise_'),
             // 密码
-            'password'          => env('database.password', 'secret'),
+            'password'          => env('database.password', 'J2hszpWCi5pkCpnA'),
             // 端口
             'hostport'          => env('database.hostport', '3306'),
             // 数据库连接参数
