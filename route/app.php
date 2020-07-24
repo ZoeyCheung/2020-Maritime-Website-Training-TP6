@@ -5,10 +5,8 @@
  * @Author: Zoey Cheung
  * @Date: 2020-06-25 00:05:52
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-24 13:17:28
+ * @LastEditTime: 2020-07-24 13:38:56
  */
-
-use app\middleware\Auth;
 use think\facade\Route;
 
 Route::pattern(['id' => '\d+']);
