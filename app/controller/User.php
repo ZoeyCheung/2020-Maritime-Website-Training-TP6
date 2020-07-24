@@ -5,12 +5,14 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-22 18:42:39
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-22 19:48:52
+ * @LastEditTime: 2020-07-24 10:24:28
  */ 
 
 namespace app\controller;
 
 use app\BaseController;
+use think\facade\Request;
+use think\facade\Validate;
 
 class User extends BaseController
 {
@@ -32,7 +34,17 @@ class User extends BaseController
      */
     public function login()
     {
-        return "login";
+        // try {
+        //     validate(User::class)->check();
+        // } catch (ValidateException $e) {
+        //     // 验证失败 输出错误信息
+        //     dump($e->getError());
+        // }
+        $logoInfo = request()->param();
+        var_dump($logoInfo);
+        // $result = validate(User::class)->check($logoInfo);
+
+        return View('./login');
     }
     public function logOut()
     {
@@ -41,5 +53,10 @@ class User extends BaseController
     public function register()
     {
         return "register";
+    }
+
+    public function token()
+    {
+        # code...
     }
 }
