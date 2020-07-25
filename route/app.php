@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-06-25 00:05:52
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-25 09:07:35
+ * @LastEditTime: 2020-07-25 18:18:22
  */
 use think\facade\Route;
 
@@ -24,7 +24,7 @@ Route::group(function(){
     Route::post('check','check');
     Route::rule('logout', 'logout');
     Route::rule('register', 'register');
-    Route::post('add_user','addUser');
+    Route::post('save','save');
     Route::rule('forgot', 'forgot');
 })->prefix('User/');
 

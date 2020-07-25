@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-23 08:37:46
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-24 18:18:08
+ * @LastEditTime: 2020-07-25 18:43:24
  */
 
 declare(strict_types=1);
@@ -23,8 +23,10 @@ class User extends Validate
      * @var array
      */
     protected $rule = [
-        'username' => 'require|max:20',
+        '__token__' => 'token',
+        'username' => 'require|min:2|max:20|chsDash|unique:users',
         'password' => 'require|min:6',
+        'repassword'=>'require|confirm:password',
         'nickname' => 'require',
         'captcha'=>'require|captcha',
     ];
@@ -37,17 +39,22 @@ class User extends Validate
      */
     protected $message = [
         'username.require' => '用户名不得为空',
+        'username.min' => '用户名不得少于2位',
         'username.max' => '用户名不得大于20位',
+        'username.chsDash'=>'用户名只能是汉字、字母、数字或下划线',
+        'username.unique'=>'用户名已存在',
         'password.require' => '密码不得为空',
         'password.max' => '密码不得少于6位',
+        'repassword.require'=>'确认密码不能为空',
+        'repassword.confirm'=>'两次输入的密码不一致',
         'nickname.require' => '昵称不得为空',
         'captcha.captcha'=>'验证码错误'
     ];
 
     // 场景验证,场景名称是自定义的
     protected $scene = [
-        'insert'=>['username','password','nickname'],
-        'edit' =>['password','nickname'],
-        'login'=>['username','password','captcha']
+        'insert'=>['__token__','username','password','repassword','nickname'],
+        'edit' =>['__token__','password','nickname'],
+        'login'=>['__token__','username','password','captcha']
     ];
 }
