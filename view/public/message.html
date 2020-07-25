@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Maritime Website Training 2020 by Zoey Cheung">
+    <meta name="keywords" content="Website,CSS,HTML,JS,PHP">
+    <title>E-commerce Error</title>
+    <link rel="shortcut icon" href="__IMG__/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="__CSS__/font-awesome.min.css">
+    <link rel="stylesheet" href="__CSS__/bootstrap.min.css">
+    <link rel="stylesheet" href="__CSS__/main.css">
+</head>
+
+<body>
+    <div class="row vw-100 vh-100 justify-content-center align-items-center">
+        <div class="card w-50">
+            <div class="card-header">
+                ! Error
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">The following error occurred:</h5>
+                {volist name='list_errors' id='vo' key='k'}
+                <p class="card-text">{$k}. {$vo}</p>
+                {/volist}
+                <a href="{:url($url_path)}" class="btn btn-primary">{$url_text}</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="__JS__/jquery-3.5.1.min.js"></script>
+    <script src="__JS__/bootstrap.min.js"></script>
+    <script src="__JS__/Validform_v5.3.2_min.js"></script>
+    <script src="__JS__/main.js"></script>
+</body>
+
+</html>

@@ -5,13 +5,14 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-22 18:42:39
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-25 19:28:06
+ * @LastEditTime: 2020-07-25 21:20:07
  */
 
 namespace app\controller;
 
 use app\BaseController;
 use app\model\User as ModelUser;
+use app\validate\Login as ValidateLogin;
 use app\validate\User as ValidateUser;
 use think\exception\ValidateException;
 use think\facade\View;
@@ -48,26 +49,60 @@ class User extends BaseController
 
         $errors = [];
 
-        if (!captcha_check($logoInfo['captcha'])) {
-            $errors = '验证码错误';
-        } else {
-            $user = ModelUser::where(['username' => $logoInfo['username'], 'password' => sha1($logoInfo['password'])])->find();
-            if (empty($user)) {
-                $errors = '用户名或密码错误';
+        // if (!captcha_check($logoInfo['captcha'])) {
+        //     $errors[] = '验证码错误';
+        // } else {
+        //     $user = ModelUser::where(['username' => $logoInfo['username'], 'password' => sha1($logoInfo['password'])])->find();
+        //     if (empty($user)) {
+        //         $errors[] = '用户名或密码错误';
+        //     } else {
+        //         session('user_id', $user['id']);
+        //         session('username', $user['username']);
+        //         session('nickname', $user['nickname']);
+        //         session('is_admin', $user['is_admin']);
+        //         if ($user['is_admin']) {
+        //             return redirect($logoInfo['referer_url']);
+        //         } else {
+        //             return redirect(url('/'));
+        //         }
+        //     }
+        // }
+        try {
+            validate(ValidateLogin::class)->batch(true)->check($logoInfo);
+        } catch (ValidateException $exception) {
+            $errors[] = $exception->getError();
+        }
+
+        $user = ModelUser::where(['username' => $logoInfo['username'], 'password' => sha1($logoInfo['password'])])->find();
+        if (empty($user)) {
+            $errors[] = '用户名或密码错误';
+        }
+
+        if (empty($error)) {
+            if ($logoInfo['referer_url'] == 'dashboard' && !$user['is_admin']) {
+                View::assign([
+                    'list_errors' => ['请使用管员账号登录后台'],
+                    'url_text' => 'Back to fix',
+                    'url_path' => '/login?url=dashboard',
+                    'referer_url' => $logoInfo['referer_url']
+                ]);
+                return view('./public/message');
             } else {
-                session('user_id',$user['id']);
+                session('user_id', $user['id']);
                 session('username', $user['username']);
                 session('nickname', $user['nickname']);
                 session('is_admin', $user['is_admin']);
-                if($user['is_admin']){
-                    return redirect($logoInfo['referer_url']);
-                }else{
-                    return redirect(url('/'));
-                }
-                
+                return redirect($logoInfo['referer_url']);
             }
+        } else {
+            View::assign([
+                'list_errors' => $errors,
+                'url_text' => 'Back to fix',
+                'url_path' => '/login',
+                'referer_url' => $logoInfo['referer_url']
+            ]);
+            return view('./public/message');
         }
-        return redirect('/login?err=' . $errors);
     }
 
     public function logout()
@@ -89,22 +124,28 @@ class User extends BaseController
     {
         $register = request()->param();
 
-        try{
+        try {
             validate(ValidateUser::class)->batch(true)->scene('insert')->check($register);
-        }catch(ValidateException $exception){
-            dd($exception->getError());
+        } catch (ValidateException $exception) {
+            View::assign([
+                'list_errors' => $exception->getError(),
+                'url_text' => 'Back to fix',
+                'url_path' => '/register',
+                'referer_url' => $register['referer_url']
+            ]);
+            return view('./public/message');
         }
 
         $register['password'] = sha1($register['password']);
 
         $user = new ModelUser;
-        $user->allowField(['username','password','nickname'])->save($register);
+        $user->allowField(['username', 'password', 'nickname'])->save($register);
 
-        session('user_id',$user->id);
+        session('user_id', $user->id);
         session('username', $user['username']);
         session('nickname', $user['nickname']);
         session('is_admin', 0);
-        return redirect($user['referer_url']);
+        return redirect('/');
     }
     public function forgot()
     {
