@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-22 18:42:39
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-25 21:20:07
+ * @LastEditTime: 2020-07-25 21:21:51
  */
 
 namespace app\controller;
@@ -48,25 +48,7 @@ class User extends BaseController
         $logoInfo = request()->param();
 
         $errors = [];
-
-        // if (!captcha_check($logoInfo['captcha'])) {
-        //     $errors[] = '验证码错误';
-        // } else {
-        //     $user = ModelUser::where(['username' => $logoInfo['username'], 'password' => sha1($logoInfo['password'])])->find();
-        //     if (empty($user)) {
-        //         $errors[] = '用户名或密码错误';
-        //     } else {
-        //         session('user_id', $user['id']);
-        //         session('username', $user['username']);
-        //         session('nickname', $user['nickname']);
-        //         session('is_admin', $user['is_admin']);
-        //         if ($user['is_admin']) {
-        //             return redirect($logoInfo['referer_url']);
-        //         } else {
-        //             return redirect(url('/'));
-        //         }
-        //     }
-        // }
+        
         try {
             validate(ValidateLogin::class)->batch(true)->check($logoInfo);
         } catch (ValidateException $exception) {
