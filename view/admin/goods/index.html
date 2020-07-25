@@ -4,8 +4,8 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-23 18:50:50
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-24 18:08:06
---> 
+ * @LastEditTime: 2020-07-25 23:07:22
+-->
 {layout name="public/admin_layout" /}
 <div class="page-wrapper">
     <div class="content container-fluid">
@@ -66,12 +66,11 @@
                                         <td class="text-right">
                                             <div class="actions">
 
-                                                <a data-toggle="modal" href="#edit_invoice_report"
-                                                    class="btn btn-sm bg-success-light mr-2">
+                                                <a class="btn btn-sm bg-success-light mr-2" href="goods/{$vo.id}/edit">
                                                     <i class="fe fe-pencil"></i> Edit
                                                 </a>
-                                                <a class="btn btn-sm bg-danger-light" data-toggle="modal"
-                                                    href="#delete_modal">
+                                                <a class="btn btn-sm bg-danger-light" href="javascript:;"
+                                                    onclick="goods_del(this,'{$vo.id}')">
                                                     <i class="fe fe-trash"></i> Delete
                                                 </a>
                                             </div>
@@ -88,3 +87,45 @@
 
     </div>
 </div>
+
+<script>
+    function goods_del(obj, id) {
+
+        // alert(id);
+        layer.confirm('确认要删除吗？', function (index) {
+
+            $.ajax({
+
+                type: 'DELETE',
+
+                url: "{:url('/dashboard/goods')}",
+
+                data: {
+                    'id': id
+                },
+
+                dataType: 'json',
+
+                success: function (data) {
+
+                    // $(obj).parents("tr").remove();
+                    window.location.reload();
+
+                    layer.msg('已删除!', {
+                        icon: 1,
+                        time: 1000
+                    });
+
+                },
+
+                error: function (data) {
+
+                    console.log(data.msg);
+
+                },
+
+            });
+
+        });
+    }
+</script>

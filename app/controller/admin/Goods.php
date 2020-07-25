@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-22 19:52:11
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-23 20:17:40
+ * @LastEditTime: 2020-07-25 23:04:13
  */
 
 namespace app\controller\admin;
@@ -94,6 +94,15 @@ class Goods
      */
     public function delete($id)
     {
-        //
+        $res = ModelGoods::where('id', $id)->delete();
+
+        if ($res) {
+            $result = [
+                'code' => 200,
+                'msg' => '删除成功'
+            ];
+            
+            echo json_encode($result);
+        }
     }
 }
