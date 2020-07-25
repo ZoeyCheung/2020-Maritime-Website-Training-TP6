@@ -55,7 +55,25 @@
 
 ## 考察要求
 ### 1. 开发环境搭建
+#### (1) 安装PHPstudy
+#### (2) 安装Composer
+在 Linux 和 Mac OS X 中可以运行如下命令：
+```
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+```
+在 Windows 中，你需要下载并运行 Composer-Setup.exe。
+#### (3) 使用Composer安装thinkphp 6.x
+```
+composer create-project topthink/think website_directory
+```
+#### (3) 修改.env文件，配置数据库，开启调试
+#### (4) 配置站点、本地域名、开启虚拟服务器
+```
+php tihink run
+```
 ### 2. 前端UI设计
+引入BootStrap，讲将js和css文件夹拷贝至项目public/static下，配置config/view.php，设置静态调用的模板路径。
 #### (1) 网站首页
 
 * DIV+CSS栅格布局

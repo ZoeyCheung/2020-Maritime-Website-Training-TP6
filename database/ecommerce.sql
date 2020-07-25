@@ -11,7 +11,7 @@
  Target Server Version : 50724
  File Encoding         : 65001
 
- Date: 24/07/2020 08:54:49
+ Date: 25/07/2020 09:12:29
 */
 
 SET NAMES utf8mb4;
@@ -33,7 +33,7 @@ CREATE TABLE `ec_goods` (
   `goods_standard` varchar(255) DEFAULT NULL,
   `goods_description` text,
   `type_id` int(11) DEFAULT NULL,
-  `is_recommend` int(1) DEFAULT '0',
+  `is_recommend` tinyint(1) DEFAULT '0',
   `remarks` varchar(255) DEFAULT NULL,
   `create_time` int(11) DEFAULT NULL,
   `update_time` int(11) DEFAULT NULL,
@@ -106,12 +106,11 @@ CREATE TABLE `ec_users` (
   `username` varchar(255) CHARACTER SET utf8 NOT NULL,
   `password` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '111111',
   `nickname` varchar(255) CHARACTER SET utf8 DEFAULT '',
-  `is_admin` int(1) DEFAULT '0',
+  `is_admin` tinyint(1) DEFAULT '0',
   `remarks` varchar(255) CHARACTER SET utf8 DEFAULT '',
   `create_time` int(11) DEFAULT NULL,
   `update_time` int(11) DEFAULT NULL,
   `delete_time` int(11) DEFAULT NULL,
-  `is_recommend` int(1) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=latin1;
 
@@ -119,13 +118,13 @@ CREATE TABLE `ec_users` (
 -- Records of ec_users
 -- ----------------------------
 BEGIN;
-INSERT INTO `ec_users` VALUES (55, 'zoeycheung', '123456', 'Zoey Cheung', 1, '', 1595296519, 1595296519, NULL, 0);
-INSERT INTO `ec_users` VALUES (56, '13752139594', '123456', 'Zhang Na', 1, '', 1595296519, 1595296519, NULL, 0);
-INSERT INTO `ec_users` VALUES (57, '13752139595', '222222', 'user05', 0, '', 1595296519, 1595296519, NULL, 0);
-INSERT INTO `ec_users` VALUES (58, '13752139596', '222222', 'user07', 0, '', 1595296519, 1595296519, NULL, 0);
-INSERT INTO `ec_users` VALUES (59, '13752139597', '222222', 'user07', 0, '', 1595296519, 1595296519, NULL, 0);
-INSERT INTO `ec_users` VALUES (60, '13752139598', '222222', 'user08', 0, '', 1595296519, 1595296519, NULL, 0);
-INSERT INTO `ec_users` VALUES (61, '13752139599', '222222', 'user09', 0, '', 1595296519, 1595296519, NULL, 0);
+INSERT INTO `ec_users` VALUES (55, 'zoeycheung', '123456', 'Zoey Cheung', 1, '', 1595296519, 1595296519, NULL);
+INSERT INTO `ec_users` VALUES (56, '13752139594', '123456', 'Zhang Na', 1, '', 1595296519, 1595296519, NULL);
+INSERT INTO `ec_users` VALUES (57, '13752139595', '222222', 'user05', 0, '', 1595296519, 1595296519, NULL);
+INSERT INTO `ec_users` VALUES (58, '13752139596', '222222', 'user07', 0, '', 1595296519, 1595296519, NULL);
+INSERT INTO `ec_users` VALUES (59, '13752139597', '222222', 'user07', 0, '', 1595296519, 1595296519, NULL);
+INSERT INTO `ec_users` VALUES (60, '13752139598', '222222', 'user08', 0, '', 1595296519, 1595296519, NULL);
+INSERT INTO `ec_users` VALUES (61, '13752139599', '222222', 'user09', 0, '', 1595296519, 1595296519, NULL);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

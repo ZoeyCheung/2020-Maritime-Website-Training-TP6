@@ -377,10 +377,14 @@ span.onsale {
     margin-left: 70px;
 }
 
-.pagination .active a {
+.pagination .active a, .pagination .active span{
     color: var(--text-gray);
     background: 0 0;
     border: none;
+}
+
+.pagination .disable{
+    display: none;
 }
 
 /* goods_detail */

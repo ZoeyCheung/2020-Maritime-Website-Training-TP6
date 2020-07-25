@@ -1,3 +1,11 @@
+<!--
+ * @Description: 
+ * @version: V 1.0
+ * @Author: Zoey Cheung
+ * @Date: 2020-07-19 12:28:12
+ * @LastEditors: Zoey Cheung
+ * @LastEditTime: 2020-07-25 18:03:19
+-->
 {layout name="public/layout" /}
 <div class="page-wrap archive shop">
     <div class="shop-categories-nav">
@@ -33,21 +41,7 @@
                     {/foreach}
                 </ul>
                 <nav class="shop-pagination text-center">
-                    <ul class="pagination justify-content-center">
-
-                        <li class="active"><a href="#">01</a></li>
-                        <li><a href="#">02</a></li>
-                        <li><a href="#">03</a></li>
-                        <li><a href="#">04</a></li>
-                        <li><a href="#">05</a></li>
-                        <li><a href="#">...</a></li>
-                        <li><a href="#">28</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true">Next <i class="fa fa-long-arrow-right"></i></span>
-                            </a>
-                        </li>
-                    </ul>
+                    {$list_goods|raw}
                 </nav>
             </div>
         </main>

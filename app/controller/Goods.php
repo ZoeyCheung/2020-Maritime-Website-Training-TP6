@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-20 16:08:22
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-23 14:35:56
+ * @LastEditTime: 2020-07-25 18:04:54
  */
 
 namespace app\controller;
@@ -18,7 +18,7 @@ class Goods extends BaseController
 {
     public function index()
     {
-        $goods = ModelGoods::order(['percentage'=>'desc','id'=>'desc'])->select();
+        $goods = ModelGoods::order(['percentage'=>'desc','id'=>'desc'])->paginate(8);
         
         View::assign([
             'title' => 'Goods',
