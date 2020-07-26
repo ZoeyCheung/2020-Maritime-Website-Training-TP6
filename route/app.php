@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-06-25 00:05:52
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-25 23:03:20
+ * @LastEditTime: 2020-07-26 09:31:07
  */
 use think\facade\Route;
 
@@ -29,7 +29,7 @@ Route::group(function(){
 })->prefix('User/');
 
 Route::group('dashboard',function(){
-    Route::get('/','index');
+    Route::resource('/','index');
     Route::get('/goods','Goods/index');
     Route::delete('/goods','Goods/delete');
     Route::resource('/user','User');
