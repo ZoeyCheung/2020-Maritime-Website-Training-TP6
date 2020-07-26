@@ -5,13 +5,13 @@
  * @Author: Zoey Cheung
  * @Date: 2020-06-25 00:05:52
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-26 11:17:38
+ * @LastEditTime: 2020-07-26 14:49:40
  */
 use think\facade\Route;
 
 Route::pattern(['id' => '\d+']);
 
-Route::rule('/', 'index');
+Route::rule('/$', 'index');
 
 Route::group('goods', function () {
     Route::rule('/', 'index');
@@ -29,10 +29,17 @@ Route::group(function(){
 })->prefix('User/');
 
 Route::group('dashboard',function(){
-    Route::get('/','index');
-    Route::get('/goods','Goods/index');
+    Route::resource('/','index');
+    
+    Route::get('/goods$','Goods/index');
+    Route::get('/goods/create','Goods/create');
+    Route::post('/goods$','Goods/save');
     Route::delete('/goods/:id','Goods/delete');
-    Route::resource('/user','User');
+    Route::get('/goods/:id/edit','Goods/edit');
+    Route::put('/goods/:id','Goods/update');
+    
+    
+    Route::get('/user$','User');
     Route::resource('/profile','Profile');
 })->prefix('admin.')->middleware(Auth::class);
 

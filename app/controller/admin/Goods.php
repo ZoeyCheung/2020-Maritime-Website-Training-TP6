@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-22 19:52:11
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-26 11:21:43
+ * @LastEditTime: 2020-07-26 15:44:42
  */
 
 namespace app\controller\admin;
@@ -71,7 +71,11 @@ class Goods
      */
     public function edit($id)
     {
-        //
+        View::assign([
+            'title' => 'Goods Edit',
+            'goods' => ModelGoods::find($id)
+        ]);
+        return View();
     }
 
     /**
@@ -83,7 +87,8 @@ class Goods
      */
     public function update(Request $request, $id)
     {
-        //
+        $goods = request()->param();
+        dd($goods);
     }
 
     /**
