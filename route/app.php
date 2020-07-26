@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-06-25 00:05:52
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-26 09:31:07
+ * @LastEditTime: 2020-07-26 11:17:38
  */
 use think\facade\Route;
 
@@ -29,9 +29,9 @@ Route::group(function(){
 })->prefix('User/');
 
 Route::group('dashboard',function(){
-    Route::resource('/','index');
+    Route::get('/','index');
     Route::get('/goods','Goods/index');
-    Route::delete('/goods','Goods/delete');
+    Route::delete('/goods/:id','Goods/delete');
     Route::resource('/user','User');
     Route::resource('/profile','Profile');
 })->prefix('admin.')->middleware(Auth::class);

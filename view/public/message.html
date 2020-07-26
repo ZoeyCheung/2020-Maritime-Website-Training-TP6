@@ -1,3 +1,11 @@
+<!--
+ * @Description: 
+ * @version: V 1.0
+ * @Author: Zoey Cheung
+ * @Date: 2020-07-25 19:48:26
+ * @LastEditors: Zoey Cheung
+ * @LastEditTime: 2020-07-26 11:21:08
+--> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,11 +25,11 @@
     <div class="row vw-100 vh-100 justify-content-center align-items-center">
         <div class="card w-50">
             <div class="card-header">
-                ! Error
+                {$msg_title}
             </div>
             <div class="card-body">
                 <h5 class="card-title">The following error occurred:</h5>
-                {volist name='list_errors' id='vo' key='k'}
+                {volist name='list_infos' id='vo' key='k'}
                 <p class="card-text">{$k}. {$vo}</p>
                 {/volist}
                 <a href="{:url($url_path)}" class="btn btn-primary">{$url_text}</a>

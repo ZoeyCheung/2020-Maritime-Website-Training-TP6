@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-22 18:42:39
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-25 21:21:51
+ * @LastEditTime: 2020-07-26 11:20:45
  */
 
 namespace app\controller;
@@ -63,7 +63,8 @@ class User extends BaseController
         if (empty($error)) {
             if ($logoInfo['referer_url'] == 'dashboard' && !$user['is_admin']) {
                 View::assign([
-                    'list_errors' => ['请使用管员账号登录后台'],
+                    'msg_title' => 'Error',
+                    'list_infos' => ['请使用管员账号登录后台'],
                     'url_text' => 'Back to fix',
                     'url_path' => '/login?url=dashboard',
                     'referer_url' => $logoInfo['referer_url']
@@ -78,7 +79,8 @@ class User extends BaseController
             }
         } else {
             View::assign([
-                'list_errors' => $errors,
+                'msg_title' => 'Error',
+                'list_infos' => $errors,
                 'url_text' => 'Back to fix',
                 'url_path' => '/login',
                 'referer_url' => $logoInfo['referer_url']
@@ -110,7 +112,8 @@ class User extends BaseController
             validate(ValidateUser::class)->batch(true)->scene('insert')->check($register);
         } catch (ValidateException $exception) {
             View::assign([
-                'list_errors' => $exception->getError(),
+                'msg_title' => 'Error',
+                'list_infos' => $exception->getError(),
                 'url_text' => 'Back to fix',
                 'url_path' => '/register',
                 'referer_url' => $register['referer_url']

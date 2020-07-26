@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-22 19:52:11
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-25 23:04:13
+ * @LastEditTime: 2020-07-26 11:21:43
  */
 
 namespace app\controller\admin;
@@ -94,15 +94,23 @@ class Goods
      */
     public function delete($id)
     {
-        $res = ModelGoods::where('id', $id)->delete();
+        $res = ModelGoods::destroy($id);
 
-        if ($res) {
-            $result = [
-                'code' => 200,
-                'msg' => '删除成功'
-            ];
-            
-            echo json_encode($result);
-        }
+        return $res ? view('./public/message', [
+            'msg_title' => 'Success',
+            'list_infos' => ['删除成功'],
+            'url_text' => 'Back to Goods List',
+            'url_path' => '/dashboard/goods',
+        ]) : '删除失败';
+
+        // ajax 返回值
+        // if ($res) {
+        //     $result = [
+        //         'code' => 200,
+        //         'msg' => '删除成功'
+        //     ];
+
+        //     echo json_encode($result);
+        // }
     }
 }
