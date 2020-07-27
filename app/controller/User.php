@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-22 18:42:39
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-26 11:20:45
+ * @LastEditTime: 2020-07-27 18:50:50
  */
 
 namespace app\controller;
@@ -60,7 +60,7 @@ class User extends BaseController
             $errors[] = '用户名或密码错误';
         }
 
-        if (empty($error)) {
+        if (empty($errors)) {
             if ($logoInfo['referer_url'] == 'dashboard' && !$user['is_admin']) {
                 View::assign([
                     'msg_title' => 'Error',
