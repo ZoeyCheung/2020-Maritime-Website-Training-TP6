@@ -4,7 +4,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-23 18:50:50
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-27 16:16:14
+ * @LastEditTime: 2020-07-27 16:49:50
 -->
 {layout name="public/admin_layout" /}
 <div class="page-wrapper">
@@ -38,6 +38,7 @@
                                         <th>Origin Price</th>
                                         <th>Discount Price</th>
                                         <th>Discount Percentage</th>
+                                        <th>Recommend</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -48,9 +49,11 @@
                                         <td><a href="{:url('/goods/'.$vo.id)}" target="_blake">{$vo.goods_sn}</a></td>
                                         <td class="text-left">
                                             <h2 class="table-avatar">
+                                                {if $vo.thumb_img}
                                                 <a href="{:url('/goods/'.$vo.id)}" class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img" src="__GOODS_IMG__/{$vo.thumb_img}"
                                                         alt="User Image"></a>
+                                                {/if}
                                                 <a href="{:url('/goods/'.$vo.id)}">{$vo.goods_name}</a>
                                             </h2>
                                         </td>
@@ -59,6 +62,13 @@
                                         <td>
                                             {if $vo.percentage}
                                             {$vo.percentage} %
+                                            {else}
+                                            -
+                                            {/if}
+                                        </td>
+                                        <td>
+                                            {if $vo.is_recommend}
+                                            <span class="badge badge-pill bg-success inv-badge">Recommend</span>
                                             {else}
                                             -
                                             {/if}

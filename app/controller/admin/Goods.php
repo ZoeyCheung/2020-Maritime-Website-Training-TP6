@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-22 19:52:11
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-27 16:00:46
+ * @LastEditTime: 2020-07-27 16:50:48
  */
 
 namespace app\controller\admin;
@@ -88,6 +88,8 @@ class Goods
      */
     public function update(Request $request, $id)
     {
+        $res = ModelGoods::find($id);
+
         $goods = request()->param();
         $goods['goods_description'] = stripslashes(htmlspecialchars_decode(request()->param('goods_description')));
         $goods['percentage'] = ceil(($goods['origin_price'] - $goods['goods_price']) / $goods['origin_price'] * 100);
@@ -96,13 +98,21 @@ class Goods
 
         // 如果有图片
         if (!empty($_FILES["thumb_img"]["name"])) {
-            array_push($allow_field,'thumb_img');
-            $goods['thumb_img'] = Filesystem::disk('public')->putfile('goods',request()->file('thumb_img'));
+            // 如果原来有图片，先删除
+            if (!empty($res['thumb_img'])) {
+                $path = app()->getRootPath() . 'public/storage/' . $res['thumb_img'];
+                unlink($path);
+            }
+            $goods['thumb_img'] = Filesystem::disk('public')->putfile('goods', request()->file('thumb_img'));
+            array_push($allow_field, 'thumb_img');
         }
+
         if (isset($goods['is_recommend'])) {
             $goods['is_recommend'] = 1;
+        }else{
+            $goods['is_recommend'] = 0;
         }
-        $res = ModelGoods::find($id);
+
         $res->allowField($allow_field)->save($goods);
 
         return $res ? view('./public/message', [
