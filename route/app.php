@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-06-25 00:05:52
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-26 14:49:40
+ * @LastEditTime: 2020-07-27 18:20:11
  */
 use think\facade\Route;
 
@@ -39,7 +39,8 @@ Route::group('dashboard',function(){
     Route::put('/goods/:id','Goods/update');
     
     
-    Route::get('/user$','User');
-    Route::resource('/profile','Profile');
+    Route::get('/user$','User/index');
+    Route::delete('/user/:id','User/delete');
+    
 })->prefix('admin.')->middleware(Auth::class);
 

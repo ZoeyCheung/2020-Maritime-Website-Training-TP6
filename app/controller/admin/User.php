@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-22 19:52:49
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-23 20:51:56
+ * @LastEditTime: 2020-07-27 18:21:27
  */
 
 declare(strict_types=1);
@@ -97,6 +97,13 @@ class User
      */
     public function delete($id)
     {
-        //
+        $res = ModelUser::destroy($id);
+
+        return $res ? view('./public/message', [
+            'msg_title' => 'Success',
+            'list_infos' => ['删除成功'],
+            'url_text' => 'Back to Goods List',
+            'url_path' => '/dashboard/user',
+        ]) : '删除失败';
     }
 }
