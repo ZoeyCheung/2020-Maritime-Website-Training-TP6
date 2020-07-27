@@ -4,7 +4,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-19 12:28:12
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-27 16:07:59
+ * @LastEditTime: 2020-07-27 17:54:30
 -->
 {layout name="public/layout" /}
 <div class="page-wrap archive shop">
@@ -24,7 +24,7 @@
                     <li class="col-md-3 product">
                         <div class="product-thumb">
                             {if $vo.percentage > 0}
-                            <span class="onsale">-30%</span>
+                            <span class="onsale">{$vo.percentage}%</span>
                             {/if}
                             <a href="goods/{$vo.id}" class="product-thumb__link">
                                 <img src="__GOODS_IMG__/{$vo.thumb_img}" alt="">

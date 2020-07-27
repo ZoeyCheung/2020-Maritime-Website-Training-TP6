@@ -4,7 +4,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-23 18:50:50
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-27 16:49:50
+ * @LastEditTime: 2020-07-27 17:42:18
 -->
 {layout name="public/admin_layout" /}
 <div class="page-wrapper">
@@ -28,7 +28,10 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <div class="table-responsive">
+                        <div class="table-responsive position-relative">
+                            <a class="btn btn-sm bg-primary-light position-absolute" style="right: 0; z-index: 100;" href="{:url('/dashboard/goods/create')}">
+                                <i class="fa fa-plus"></i> Add Goods
+                            </a>
                             <table class="datatable table table-hover table-center mb-0">
                                 <thead>
                                     <tr class="text-center">
