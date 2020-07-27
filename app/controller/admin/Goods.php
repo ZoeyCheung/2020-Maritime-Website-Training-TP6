@@ -5,12 +5,13 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-22 19:52:11
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-26 15:44:42
+ * @LastEditTime: 2020-07-27 16:00:46
  */
 
 namespace app\controller\admin;
 
 use app\model\Goods as ModelGoods;
+use think\facade\Filesystem;
 use think\facade\View;
 use think\Request;
 
@@ -88,7 +89,28 @@ class Goods
     public function update(Request $request, $id)
     {
         $goods = request()->param();
-        dd($goods);
+        $goods['goods_description'] = stripslashes(htmlspecialchars_decode(request()->param('goods_description')));
+        $goods['percentage'] = ceil(($goods['origin_price'] - $goods['goods_price']) / $goods['origin_price'] * 100);
+
+        $allow_field = ['goods_sn', 'goods_name', 'goods_quantity', 'origin_price', 'goods_price', 'percentage', 'goods_standard', 'goods_description', 'is_recommend'];
+
+        // 如果有图片
+        if (!empty($_FILES["thumb_img"]["name"])) {
+            array_push($allow_field,'thumb_img');
+            $goods['thumb_img'] = Filesystem::disk('public')->putfile('goods',request()->file('thumb_img'));
+        }
+        if (isset($goods['is_recommend'])) {
+            $goods['is_recommend'] = 1;
+        }
+        $res = ModelGoods::find($id);
+        $res->allowField($allow_field)->save($goods);
+
+        return $res ? view('./public/message', [
+            'msg_title' => 'Success',
+            'list_infos' => ['修改成功'],
+            'url_text' => 'Back to Goods List',
+            'url_path' => '/dashboard/goods',
+        ]) : '修改失败';
     }
 
     /**

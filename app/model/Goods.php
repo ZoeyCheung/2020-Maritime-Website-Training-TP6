@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-20 19:32:51
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-23 14:06:17
+ * @LastEditTime: 2020-07-27 10:59:06
  */ 
 
 namespace app\model;
@@ -23,6 +23,11 @@ class Goods extends Model
 
     // 计算优惠比例
     public function getPercentageAttr($value, $data)
+    {
+        return ceil(($data['origin_price']-$data['goods_price'])/$data['origin_price']*100);
+    }
+
+    public function setPercentageAttr($value, $data)
     {
         return ceil(($data['origin_price']-$data['goods_price'])/$data['origin_price']*100);
     }

@@ -19,13 +19,13 @@
                         {/if}
                         <div class="product-gallery">
                             <div id="js-product-big" class="product-gallery__big">
-                                <img src="__IMG__/goods/{$goods.thumb_img}" alt="{$goods.goods_name}">
+                                <img src="__GOODS_IMG__/{$goods.thumb_img}" alt="{$goods.goods_name}">
                             </div>
                             <div id="js-product-nav" class="row product-gallery-thumbs">
                                 {foreach $goods.goodsImg as $key => $vo}
                                 <div class="col-sm-3 product-gallery-thumbs__item"
-                                    data-large-src="__IMG__/goods/{$vo.img_url}">
-                                    <img src="__IMG__/goods/{$vo.img_url}" alt="{$vo.img_url}">
+                                    data-large-src="__GOODS_IMG__/{$vo.img_url}">
+                                    <img src="__GOODS_IMG__/{$vo.img_url}" alt="{$vo.img_url}">
                                 </div>
                                 {/foreach}
                             </div>
