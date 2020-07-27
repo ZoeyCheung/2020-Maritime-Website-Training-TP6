@@ -5,13 +5,11 @@
  * @Author: Zoey Cheung
  * @Date: 2020-06-25 00:05:52
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-27 18:20:11
+ * @LastEditTime: 2020-07-27 18:42:09
  */
 use think\facade\Route;
 
 Route::pattern(['id' => '\d+']);
-
-Route::rule('/$', 'index');
 
 Route::group('goods', function () {
     Route::rule('/', 'index');
@@ -43,4 +41,6 @@ Route::group('dashboard',function(){
     Route::delete('/user/:id','User/delete');
     
 })->prefix('admin.')->middleware(Auth::class);
+
+Route::rule('/', 'index');
 
