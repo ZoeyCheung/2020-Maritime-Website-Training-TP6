@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-22 19:52:11
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-09-06 12:13:32
+ * @LastEditTime: 2020-09-06 12:15:54
  */
 
 namespace app\controller\admin;
@@ -34,7 +34,8 @@ class Goods
         
         View::assign([
             'title' => 'Goods Management',
-            'list_goods' => $goods
+            'list_goods' => $goods,
+            'search'=> $search['search']
         ]);
         return View();
     }
