@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-06-25 00:05:52
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-27 18:42:09
+ * @LastEditTime: 2020-09-06 18:12:37
  */
 use think\facade\Route;
 
@@ -31,12 +31,11 @@ Route::group('dashboard',function(){
     
     Route::get('/goods$','Goods/index');
     Route::get('/goods/create','Goods/create');
+    Route::post('/goods/lay_img_upload','Goods/lay_img_upload');
     Route::post('/goods$','Goods/save');
     Route::delete('/goods/:id','Goods/delete');
     Route::get('/goods/:id/edit','Goods/edit');
     Route::put('/goods/:id','Goods/update');
-    
-    
     Route::get('/user$','User/index');
     Route::delete('/user/:id','User/delete');
     

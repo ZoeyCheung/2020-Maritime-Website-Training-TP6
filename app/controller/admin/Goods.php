@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-22 19:52:11
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-09-06 12:15:54
+ * @LastEditTime: 2020-09-06 18:42:02
  */
 
 namespace app\controller\admin;
@@ -25,18 +25,22 @@ class Goods
     public function index()
     {
         $search = request()->param();
-        if(isset($search)){
-            $goods = ModelGoods::order('id', 'desc')->where('goods_name','like','%'.$search['search'].'%')->select();
-        }else{
+        if (!empty($search)) {
+            $goods = ModelGoods::order('id', 'desc')->where('goods_name', 'like', '%' . $search['search'] . '%')->select();
+        } else {
             $goods = ModelGoods::order('id', 'desc')->select();
         }
 
-        
-        View::assign([
+        $data = [
             'title' => 'Goods Management',
-            'list_goods' => $goods,
-            'search'=> $search['search']
-        ]);
+            'list_goods' => $goods
+        ];
+
+        if (isset($search['search'])) {
+            $data['search'] = $search['search'];
+        }
+
+        View::assign($data);
         return View();
     }
 
@@ -187,5 +191,36 @@ class Goods
 
         //     echo json_encode($result);
         // }
+    }
+
+    //layui编辑器图片上传接口
+    public function lay_img_upload()
+    {
+        $file = request()->file('file');
+
+        if(empty($file)){
+            $result["code"] = "1";
+            $result["msg"] = "请选择图片";
+            $result['data']["src"] = '';
+        }else{
+            // 移动到框架应用根目录public/storage/uploads 目录下
+            $saveName = Filesystem::disk('public')->putfile('uploads', $file);
+            if(!empty($saveName)){
+                $name_path =str_replace('\\',"/",$saveName);
+                //成功上传后 获取上传信息
+                $result["code"] = '0';
+                $result["msg"] = "上传成功";
+                $result['data']["src"] = '/storage/'.$name_path;
+            }else{
+                  // 上传失败获取错误信息
+                $result["code"] = "2";
+                $result["msg"] = "上传出错";
+                $result['data']["src"] ='';
+            }
+
+
+        }
+        
+        return json_encode($result);
     }
 }
