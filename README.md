@@ -190,7 +190,7 @@ php tihink run
 * 商品列表：读取所有商品信息，分页展示
 * 新增商品：添加商品记录，商品编号唯一
 * 编辑商品：修改指定商品记录
-* 整合在线编辑器：[ueditor](https://github.com/fex-team/ueditor#ueditor)
+* 整合在线编辑器：[layui](https://www.layui.com/)
 * 删除商品：删除指定商品记录
 
 
