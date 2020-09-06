@@ -5,7 +5,7 @@
  * @Author: Zoey Cheung
  * @Date: 2020-07-22 19:52:11
  * @LastEditors: Zoey Cheung
- * @LastEditTime: 2020-07-27 17:50:40
+ * @LastEditTime: 2020-09-06 12:13:32
  */
 
 namespace app\controller\admin;
@@ -24,7 +24,14 @@ class Goods
      */
     public function index()
     {
-        $goods = ModelGoods::order('id', 'desc')->select();
+        $search = request()->param();
+        if(isset($search)){
+            $goods = ModelGoods::order('id', 'desc')->where('goods_name','like','%'.$search['search'].'%')->select();
+        }else{
+            $goods = ModelGoods::order('id', 'desc')->select();
+        }
+
+        
         View::assign([
             'title' => 'Goods Management',
             'list_goods' => $goods
